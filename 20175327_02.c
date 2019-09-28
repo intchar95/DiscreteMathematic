@@ -24,6 +24,11 @@ int main(int argc, char *argv[]){
 		printf("연산은 최대 100개까지 가능합니다.");
 	}
 	printf("%d\n\n\n",sum);
-
+	
+	printf("@)!&%#@&@)!&%#@&@)!&%#@&@)!&%#@&@)!&%#@&\n\n");
+	printf("   Yong-Beom Cho\n");
+	printf("   student ID : 20175327\n\n");
+	printf("@)!&%#@&@)!&%#@&@)!&%#@&@)!&%#@&@)!&%#@&\n");
+	
 	return 0;
 }
