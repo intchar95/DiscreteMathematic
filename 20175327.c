@@ -6,7 +6,7 @@
 int main(int argc, char *argv[]){
 	int i,sum=0;
 	
-
+	if(argc <= 201){
 		 for(i=0;i<argc/2;i++){
 			
 			if(strcmp(argv[2*i+1],"+") == 0){
@@ -19,7 +19,9 @@ int main(int argc, char *argv[]){
 				
 			}
 		} 
-
+	}else{
+		printf("연산은 최대 100개까지 가능합니다.");
+	}
 	printf("%d\n\n\n",sum);
 
 	return 0;
