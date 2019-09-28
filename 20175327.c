@@ -13,7 +13,7 @@ int main(int argc, char *argv[]){
 				
 				sum += atoi(argv[2*i+2]);
 				
-			}else (strcmp(argv[2*i+1],"+") != 0){
+			}else{
 			
 				sum -=  atoi(argv[2*i+2]);
 				
