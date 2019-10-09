@@ -1,17 +1,15 @@
 #include <stdio.h>
 
-void main(void){
+void main(int argc, char *argv[]){
 
-    int i, j,num=0;
-
-    char arr[4] = { 'a', 'b', 'c', 'd' };
-
-    int n = 4;
+    int i, j, num=0;
 	int k=1;
 
-    for (i = 1; i < 1<<n; i++){
+	printf("[0001]%c\n",65);
+	
+    for (i = 1; i < 1<<argc-1; i++){
 
-        for (j = 0; j < n; j++){
+        for (j = 0; j < argc-1; j++){
 		
 		if(num==0){
 			k++;
@@ -20,7 +18,7 @@ void main(void){
 		}
             if (i & (1 << j)){
 			
-                printf("%c ",arr[j]);
+                printf("%s ",argv[j+1]);
 
             }
 
