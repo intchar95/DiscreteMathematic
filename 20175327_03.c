@@ -1,11 +1,15 @@
 #include <stdio.h>
+#include <locale.h>
+#include <string.h>
 
 void main(int argc, char *argv[]){
 
     int i, j, num=0;
 	int k=1;
-
-	printf("[0001]%c\n",65);
+	
+	system("chcp 437");
+	
+	printf("\n[0001]%c\n",155);
 	
     for (i = 1; i < 1<<argc-1; i++){
 
