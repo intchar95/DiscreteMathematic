@@ -6,7 +6,7 @@ void main(int argc, char *argv[]){
 
     int i, j, num;
 	int k=2;
-	
+
 	system("chcp 437");
 	
 	printf("\n[0001]%c\n",155);
@@ -38,4 +38,5 @@ void main(int argc, char *argv[]){
 			"   Yong-Beom Cho\n"
 			"   student ID : 20175327\n\n"
 			"@)!&%#@&@)!&%#@&@)!&%#@&@)!&%#@&@)!&%#@&\n");
+			
 }
