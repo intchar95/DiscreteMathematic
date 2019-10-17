@@ -11,19 +11,19 @@ void main(int argc, char *argv[]){
 	
 	printf("\n[0001]%c\n",155);
 	
-    for (i = 1; i < 1<<argc-1; i++){
+    for (i = 1; i < 1<<argc-2; i++){
 		num = 0;
 		printf("[%04d]", k);
 		k++;
 
-        for (j = 0; j < argc-1; j++){
+        for (j = 0; j < argc-2; j++){
 
 			if (i & (1 << j)) {
 
 				if (num == 1)
 					printf(", ");
 
-				printf("%s", argv[j + 1]);
+				printf("%s", argv[j + 2]);
 				num = 1;
 			}
 
