@@ -18,7 +18,7 @@ typedef node* link;
 link createNode(char *);
 link append(link, link);
 int searchNode(link, char *);
-void printfList(link);
+void fprintfList(link, FILE *);
 
 link createNode(char *wrd) {
 	link cur;
@@ -67,12 +67,12 @@ int searchNode(link head, char *wrd) {
 	return 1;
 }
 
-void printfList(link head) {
+void fprintfList(link head, FILE *fp) {
 	int total = 0, wrdCnt = 0;   //총 단어 개수
 	link nextNode = head;
 
 	while (nextNode != NULL) {
-		printf("[%05d] %s (%d)\n", ++wrdCnt, nextNode->wrd, nextNode->cnt);
+		fprintf(fp, "[%05d] %s (%d)\n", ++wrdCnt, nextNode->wrd, nextNode->cnt);
 		total += head->cnt;
 		nextNode = nextNode->next;
 	}
@@ -93,11 +93,11 @@ int main(int argc, char *argv[]) {
 		printf("파일 오류");
 		exit(1);
 	}
-/*	if (fopen_s(&fp_out, argv[2], "w") != 0) {
+	if (fopen_s(&fp_out, argv[2], "w") != 0) {
 		printf("파일 오류");
 		exit(1);
 	}
-	*/
+	
 
 	char wrdBuff[BUFFERSIZE];
 	link head = NULL;
@@ -135,17 +135,15 @@ int main(int argc, char *argv[]) {
 				flag = 1;
 			}
 			
-///			printf("%s111\n", wrdBuff);
 			k = 0;
 			wrdBuff[0] = '\0';
 		}
 	}
-	printfList(head);
+	printf("완료\n");
 
+	fprintfList(head, fp_out);
 
-
-
-	printf("\n@)!&%#@&@)!&%#@&@)!&%#@&@)!&%#@&@)!&%#@&\n\n"
+	fprintf(fp_out, "\n@)!&%#@&@)!&%#@&@)!&%#@&@)!&%#@&@)!&%#@&\n\n"
 		"   Yong-Beom Cho\n"
 		"   student ID : 20175327"
 		"\n\n@)!&%#@&@)!&%#@&@)!&%#@&@)!&%#@&@)!&%#@&\n");
