@@ -18,7 +18,7 @@ typedef node* link;
 
 link createNode(char *);
 link append(link, link);
-void searchNode(link, char *);
+int searchNode(link, char *);
 void printfList(link);
 
 link createNode(char *wrd) {
@@ -54,16 +54,18 @@ link append(link head, link cur) {
 	return head;
 }
 
-void searchNode(link head, char *wrd) {
+int searchNode(link head, char *wrd) {
 	link nextNode = head;
 
 	while (nextNode != NULL) {
 		if (!strcmp(nextNode->wrd, wrd)) {
 			nextNode->cnt++;
-	//		printf("%s11\n",nextNode->wrd);
+			return 1;
 		}
 		nextNode = nextNode->next;
 	}
+
+	return 0;
 }
 
 void printfList(link head) {
@@ -107,7 +109,20 @@ int main(int argc, char *argv[]) {
 	int k = 0;
 	while (!feof(fp_in)) {
 		ch = fgetc(fp_in);
-		
+		if (isalnum(ch)) {
+			wrdBuff[k++] = ch;
+		}
+		else if(wrdBuff[0] != '\0'){
+			wrdBuff[k] = '\0';
+
+			
+//			if (flag == 0) {
+//				flag = 1;
+//		}
+///			printf("%s111\n", wrdBuff);
+			k = 0;
+			wrdBuff[0] = '\0';
+		}
 	}
 
 
