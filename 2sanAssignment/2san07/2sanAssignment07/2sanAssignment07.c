@@ -4,7 +4,6 @@
 #include <string.h>
 #include <ctype.h>
 
-#define MAXSIZE 256
 #define BUFFERSIZE 30
 
 struct llst {
@@ -60,12 +59,12 @@ int searchNode(link head, char *wrd) {
 	while (nextNode != NULL) {
 		if (!strcmp(nextNode->wrd, wrd)) {
 			nextNode->cnt++;
-			return 1;
+			return 0;
 		}
 		nextNode = nextNode->next;
 	}
 
-	return 0;
+	return 1;
 }
 
 void printfList(link head) {
@@ -116,15 +115,32 @@ int main(int argc, char *argv[]) {
 			wrdBuff[k] = '\0';
 
 			
-//			if (flag == 0) {
-//				flag = 1;
-//		}
+			if (head != NULL) {
+				if (searchNode(head, wrdBuff)) {
+					cur = createNode(wrdBuff);
+					if (cur == NULL) {
+						printf("동적할당 문제");
+						exit(1);
+					}
+					head = append(head, cur);
+				}
+			}
+			if (flag == 0) {
+				cur = createNode(wrdBuff);
+				if (cur == NULL) {
+					printf("동적할당 문제");
+					exit(1);
+				}
+				head = append(head, cur);
+				flag = 1;
+			}
+			
 ///			printf("%s111\n", wrdBuff);
 			k = 0;
 			wrdBuff[0] = '\0';
 		}
 	}
-
+	printfList(head);
 
 
 
